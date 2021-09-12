@@ -23,6 +23,9 @@ public class Controlador extends HttpServlet
     Empleado empleado = new Empleado();
     EmpleadoDAO empleadoDAO = new EmpleadoDAO();
     
+    /*Variable para la función Editar y Eliminar*/
+    int codEmpleado;
+    
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -67,6 +70,14 @@ public class Controlador extends HttpServlet
                     
                     empleadoDAO.agregar(empleado);
                     request.getRequestDispatcher("Controlador?menu=Empleado&accion=Listar").forward(request, response);
+                    break;
+                    
+                case "Editar":
+                    codEmpleado = Integer.parseInt(request.getParameter("codigoEmpleado"));
+                    Empleado e = empleadoDAO.listarCodigoEmpleado(codEmpleado);
+                    request.setAttribute("empleado", e);
+                    request.getRequestDispatcher("Controlador?menu=Empleado&accion=Listar").forward(request, response);
+                    break;
             }
         }
     }
