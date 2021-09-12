@@ -1,0 +1,49 @@
+/*** ESTILOS BOTÓN SLIDE CLOSE ***/
+
+.ov-btn-slide-close {
+background: orange; /* color de fondo */
+color: black; /* color de fuente */
+padding: 16px 20px;
+border-radius: 3px; /* redondear bordes */
+position: relative;
+z-index: 1;
+overflow: hidden;
+display: inline-block;
+cursor: pointer;
+text-decoration: none;
+font-weight: bold;
+border-color: transparent;
+border: none
+}
+.ov-btn-slide-close:before, .ov-btn-slide-close:after {
+content: "";
+z-index: -1;
+position: absolute;
+width: 50%;
+height: 100%;
+top: 0;
+left: -50%;
+background-color: #1D1D1D; /* color de fondo hover */
+-webkit-transition: all 0.3s ease-in-out;
+-o-transition: all 0.3s ease-in-out;
+transition: all 0.3s ease-in-out;
+cursor: pointer;
+}
+.ov-btn-slide-close:after {
+left: 100%;
+}
+.ov-btn-slide-close:hover {   
+color: orange; /* color de fuente hover */
+cursor: pointer;
+text-decoration: none;
+}
+.ov-btn-slide-close:hover:before {
+left: 0;
+cursor: pointer;
+text-decoration: none;
+}
+.ov-btn-slide-close:hover:after 
+{
+left: 50%;
+cursor: pointer;
+}
