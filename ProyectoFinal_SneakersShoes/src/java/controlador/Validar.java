@@ -11,12 +11,18 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import modelo.Empleado;
+import modelo.EmpleadoDAO;
 
 /**
  *
  * @author Compu
  */
-public class Validar extends HttpServlet {
+public class Validar extends HttpServlet 
+{
+    Empleado empleado = new Empleado();
+    EmpleadoDAO empleadoDAO = new EmpleadoDAO();
+            
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -69,8 +75,29 @@ public class Validar extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
+            throws ServletException, IOException 
+    {
+        String accion = request.getParameter("accion");
+        
+        if (accion.equalsIgnoreCase("Ingresar")) 
+        {
+            String user = request.getParameter("txtUser");
+            String pass = request.getParameter("txtPass");
+            empleado = empleadoDAO.validar(user, pass);
+            if (empleado.getUsuario() != null) 
+            {
+                request.setAttribute("usuario", empleado);
+                request.getRequestDispatcher("Controlador?menu=Principal").forward(request, response);
+            } 
+            else 
+            {
+                request.getRequestDispatcher("index.jsp").forward(request, response);
+            }
+        } 
+        else 
+        {
+            request.getRequestDispatcher("index.jsp").forward(request, response);
+        }
     }
 
     /**
