@@ -16,21 +16,29 @@ import modelo.Cliente;
 import modelo.ClienteDAO;
 import modelo.Empleado;
 import modelo.EmpleadoDAO;
+import modelo.Producto;
+import modelo.ProductoDAO;
 
 
 public class Controlador extends HttpServlet 
 {
     /*Referencia a las clases modelo*/
     
+    /*Modelo de Empleado*/
     Empleado empleado = new Empleado();
     EmpleadoDAO empleadoDAO = new EmpleadoDAO();
+    /*Modelo de Clientes*/
     Cliente cliente = new Cliente();
     ClienteDAO clienteDAO = new ClienteDAO();
-
+    /*Modelo de Productos*/
+    Producto producto = new Producto();
+    ProductoDAO productoDAO = new ProductoDAO();
     
-    /*Variable para la función Editar y Eliminar*/
+    /*Variables para la función Editar y Eliminar*/
     int codEmpleado;
     int codCliente;
+    int codProducto;
+    
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -109,13 +117,16 @@ public class Controlador extends HttpServlet
             
             request.getRequestDispatcher("Empleado.jsp").forward(request, response);
        
-        }else if (menu.equals("Cliente"))
+        }
+        else if (menu.equals("Cliente"))
         {
-            switch (accion) {
+            switch (accion) 
+            {
                 case "Listar":
                     List listaClientes = clienteDAO.listar();
                     request.setAttribute("clientes", listaClientes);
                     break;
+                    
                 case "Agregar":
                     String DPI = request.getParameter("txtDPICliente");
                     String nombres = request.getParameter("txtNombresCliente");
@@ -128,12 +139,14 @@ public class Controlador extends HttpServlet
                     clienteDAO.agregar(cliente);
                     request.getRequestDispatcher("Controlador?menu=Cliente&accion=Listar").forward(request, response);
                     break;
+                    
                 case "Editar":
                     codCliente = Integer.parseInt(request.getParameter("codigoCliente"));
-                    Cliente e = clienteDAO.listarCodigoCliente(codCliente);
-                    request.setAttribute("cliente", e);
+                    Cliente c = clienteDAO.listarCodigoCliente(codCliente);
+                    request.setAttribute("cliente", c);
                     request.getRequestDispatcher("Controlador?menu=Cliente&accion=Listar").forward(request, response);
                     break;
+                    
                 case "Actualizar":
                     String DPICli = request.getParameter("txtDPICliente");
                     String nombresCli = request.getParameter("txtNombresCliente");
@@ -147,6 +160,7 @@ public class Controlador extends HttpServlet
                     clienteDAO.actualizar(cliente);
                     request.getRequestDispatcher("Controlador?menu=Cliente&accion=Listar").forward(request, response);
                     break;
+                    
                 case "Eliminar":
                     codCliente = Integer.parseInt(request.getParameter("codigoCliente"));
                     clienteDAO.eliminar(codCliente);
@@ -155,7 +169,58 @@ public class Controlador extends HttpServlet
             }
             request.getRequestDispatcher("Cliente.jsp").forward(request, response);
         }
-            
+        else if (menu.equals("Producto"))
+        {
+            switch (accion) 
+            {
+                case "Listar":
+                    List listaProductos = productoDAO.listar();
+                    request.setAttribute("productos", listaProductos);
+                    break;
+                    
+                case "Agregar":
+                    String nombres = request.getParameter("txtNombreProducto");
+                    String precio = request.getParameter("txtPrecio");
+                    String stock = request.getParameter("txtStock");
+                    String est = request.getParameter("txtEstado");
+                    producto.setNombreProducto(nombres);
+                    producto.setPrecio(Double.parseDouble(precio));
+                    producto.setStock(Integer.parseInt(stock));
+                    producto.setEstado(est);
+                    productoDAO.agregar(producto);
+                    request.getRequestDispatcher("Controlador?menu=Producto&accion=Listar").forward(request, response);
+                    break;
+                    
+                case "Editar":
+                    codProducto = Integer.parseInt(request.getParameter("codigoProducto"));
+                    Producto p = productoDAO.listarCodigoProducto(codProducto);
+                    request.setAttribute("producto", p);
+                    request.getRequestDispatcher("Controlador?menu=Producto&accion=Listar").forward(request, response);
+                    break;
+                    
+                case "Actualizar":
+                    String nombresPro = request.getParameter("txtNombreProducto");
+                    String precioPro = request.getParameter("txtPrecio");
+                    String stockPro = request.getParameter("txtStock");
+                    String estPro = request.getParameter("txtEstado");
+                    producto.setNombreProducto(nombresPro);
+                    producto.setPrecio(Double.parseDouble(precioPro));
+                    producto.setStock(Integer.parseInt(stockPro));
+                    producto.setEstado(estPro);
+                    producto.setCodigoProducto(codProducto);
+                    productoDAO.actualizar(producto);
+                    request.getRequestDispatcher("Controlador?menu=Producto&accion=Listar").forward(request, response);
+                    break;
+                    
+                case "Eliminar":
+                    codProducto = Integer.parseInt(request.getParameter("codigoProducto"));
+                    productoDAO.eliminar(codProducto);
+                    request.getRequestDispatcher("Controlador?menu=Producto&accion=Listar").forward(request, response);
+                    break;        
+            }
+            request.getRequestDispatcher("Producto.jsp").forward(request, response);
+        }
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -32,7 +32,7 @@
                             <a style="margin-left: 10px; border: none" class="nav-link btn btn-outline-light text-dark" href="Controlador?menu=Empleado&accion=Listar" target="myFrame">Empleado</a>
                         </li>
                         <li class="nav-item" style="background-color: #f5cba7;">
-                            <a  style="margin-left: 10px; border: none" class="nav-link btn btn-outline-light text-dark" href="Controlador?menu=Cliente" target="myFrame">Producto</a>
+                            <a  style="margin-left: 10px; border: none" class="nav-link btn btn-outline-light text-dark" href="Controlador?menu=Producto&accion=Listar" target="myFrame">Producto</a>
                         </li>
                         <li class="nav-item" style="background-color: #f5cba7;">
                             <a  style="margin-left: 10px; border: none" class="nav-link btn btn-outline-light text-dark" href="Controlador?menu=RegistroVenta" target="myFrame">RegistroVenta</a>
