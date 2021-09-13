@@ -34,9 +34,11 @@ public class Controlador extends HttpServlet
     Producto producto = new Producto();
     ProductoDAO productoDAO = new ProductoDAO();
     
-    /*Variable para la función Editar y Eliminar*/
+    /*Variables para la función Editar y Eliminar*/
     int codEmpleado;
     int codCliente;
+    int codProducto;
+    
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -190,6 +192,11 @@ public class Controlador extends HttpServlet
                     break;
                     
                 case "Editar":
+                    codProducto = Integer.parseInt(request.getParameter("codigoProducto"));
+                    Producto e = productoDAO.listarCodigoProducto(codProducto);
+                    request.setAttribute("producto", e);
+                    request.getRequestDispatcher("Controlador?menu=Producto&accion=Listar").forward(request, response);
+                    break;
                     
                 case "Actualizar":
                     
