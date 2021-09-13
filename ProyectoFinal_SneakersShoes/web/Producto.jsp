@@ -14,19 +14,19 @@
                     <form action="Controlador?menu=Producto" method="POST">
                         <div class="form-group">
                             <label>Nombre:</label>
-                            <input type="text" name="txtNombreProducto" class="form-control">                            
+                            <input type="text" value = "${producto.getNombreProducto()}" name="txtNombreProducto" class="form-control">                            
                         </div>
                         <div class="form-group">
                             <label>Precio:</label>
-                            <input type="text" name="txtPrecio" class="form-control">
+                            <input type="text" value = "${producto.getPrecio()}" name="txtPrecio" class="form-control">
                         </div>
                         <div class="form-group">
                             <label>Stock:</label>
-                            <input type="text"name="txtStock" class="form-control">
+                            <input type="text" value = "${producto.getStock()}" name="txtStock" class="form-control">
                         </div>
                         <div class="form-group">
                             <label>Estado:</label>
-                            <input type="text" name="txtEstado" class="form-control">
+                            <input type="text" value = "${producto.getEstado()}" name="txtEstado" class="form-control">
                         </div>
                         <input type="submit" name="accion" value="Agregar" class="btn btn-info">
                         <input type="submit" name="accion" value="Actualizar" class="btn btn-success">
@@ -54,8 +54,8 @@
                                 <td>${producto.getStock()}</td>
                                 <td>${producto.getEstado()}</td>
                                 <td>
-                                    <a class="btn btn-warning">Editar</a>
-                                    <a class="btn btn-danger">Eliminar</a>
+                                    <a class="btn btn-warning" href="Controlador?menu=Producto&accion=Editar&codigoProducto=${producto.getCodigoProducto()}">Editar</a>
+                                    <a class="btn btn-danger" href="Controlador?menu=Producto&accion=Eliminar&codigoProducto=${producto.getCodigoProducto()}">Eliminar</a>
                                 </td>
                             </tr>
                         </c:forEach>
