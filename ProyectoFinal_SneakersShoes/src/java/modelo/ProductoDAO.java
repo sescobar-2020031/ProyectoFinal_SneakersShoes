@@ -127,7 +127,7 @@ public class ProductoDAO
     
     public int actualizar(Producto pro)
     {
-        String sql = "Update Producto set nombreProducto = ?, precio = ?, stock = ?, estado = ?, where codigoProducto = ?";
+        String sql = "Update Producto set nombreProducto = ?, precio = ?, stock = ?, estado = ? where codigoProducto = ?";
         try
         {
             con = cn.Conexion();
