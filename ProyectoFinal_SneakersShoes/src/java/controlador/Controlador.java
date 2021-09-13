@@ -129,13 +129,23 @@ public class Controlador extends HttpServlet
                     request.getRequestDispatcher("Controlador?menu=Cliente&accion=Listar").forward(request, response);
                     break;
                 case "Editar":
-                   codCliente = Integer.parseInt(request.getParameter("codigoCliente"));
+                    codCliente = Integer.parseInt(request.getParameter("codigoCliente"));
                     Cliente e = clienteDAO.listarCodigoCliente(codCliente);
                     request.setAttribute("cliente", e);
                     request.getRequestDispatcher("Controlador?menu=Cliente&accion=Listar").forward(request, response);
                     break;
                 case "Actualizar":
-                   
+                    String DPICli = request.getParameter("txtDPICliente");
+                    String nombresCli = request.getParameter("txtNombresCliente");
+                    String direccionCli = request.getParameter("txtDireccionCliente");
+                    String estCli = request.getParameter("txtEstado");
+                    cliente.setDPICliente(DPICli);
+                    cliente.setNombresCliente(nombresCli);
+                    cliente.setDireccionCliente(direccionCli);
+                    cliente.setEstado(estCli);
+                    cliente.setCodigoCliente(codCliente);
+                    clienteDAO.actualizar(cliente);
+                    request.getRequestDispatcher("Controlador?menu=Cliente&accion=Listar").forward(request, response);
                     break;
                 case "Eliminar":
                     
