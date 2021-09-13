@@ -12,6 +12,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import modelo.Cliente;
+import modelo.ClienteDAO;
 import modelo.Empleado;
 import modelo.EmpleadoDAO;
 
@@ -22,6 +24,9 @@ public class Controlador extends HttpServlet
     
     Empleado empleado = new Empleado();
     EmpleadoDAO empleadoDAO = new EmpleadoDAO();
+    Cliente cliente = new Cliente();
+    ClienteDAO clienteDAO = new ClienteDAO();
+
     
     /*Variable para la función Editar y Eliminar*/
     int codEmpleado;
@@ -103,7 +108,31 @@ public class Controlador extends HttpServlet
             }
             
             request.getRequestDispatcher("Empleado.jsp").forward(request, response);
+       
+        }else if (menu.equals("Clente"))
+        {
+            switch (accion) {
+                case "Listar":
+                    List listaClientes = clienteDAO.listar();
+                    request.setAttribute("clientes", listaClientes);
+                    break;
+                case "Agregar":
+                    
+                   
+                    break;
+                case "Editar":
+                   
+                    break;
+                case "Actualizar":
+                   
+                    break;
+                case "Eliminar":
+                    
+                    break;
+            }
+            request.getRequestDispatcher("Cliente.jsp").forward(request, response);
         }
+            
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
