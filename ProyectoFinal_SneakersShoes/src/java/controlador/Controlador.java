@@ -16,17 +16,23 @@ import modelo.Cliente;
 import modelo.ClienteDAO;
 import modelo.Empleado;
 import modelo.EmpleadoDAO;
+import modelo.Producto;
+import modelo.ProductoDAO;
 
 
 public class Controlador extends HttpServlet 
 {
     /*Referencia a las clases modelo*/
     
+    /*Modelo de Empleado*/
     Empleado empleado = new Empleado();
     EmpleadoDAO empleadoDAO = new EmpleadoDAO();
+    /*Modelo de Clientes*/
     Cliente cliente = new Cliente();
     ClienteDAO clienteDAO = new ClienteDAO();
-
+    /*Modelo de Productos*/
+    Producto producto = new Producto();
+    ProductoDAO productoDAO = new ProductoDAO();
     
     /*Variable para la función Editar y Eliminar*/
     int codEmpleado;
@@ -109,9 +115,11 @@ public class Controlador extends HttpServlet
             
             request.getRequestDispatcher("Empleado.jsp").forward(request, response);
        
-        }else if (menu.equals("Cliente"))
+        }
+        else if (menu.equals("Cliente"))
         {
-            switch (accion) {
+            switch (accion) 
+            {
                 case "Listar":
                     List listaClientes = clienteDAO.listar();
                     request.setAttribute("clientes", listaClientes);
@@ -155,6 +163,26 @@ public class Controlador extends HttpServlet
             }
             request.getRequestDispatcher("Cliente.jsp").forward(request, response);
         }
+        else if (menu.equals("Producto"))
+        {
+            switch (accion) 
+            {
+                case "Listar":
+                    List listaProductos = productoDAO.listar();
+                    request.setAttribute("productos", listaProductos);
+                    break;
+                case "Agregar":
+                    
+                case "Editar":
+                    
+                case "Actualizar":
+                    
+                case "Eliminar":
+                    
+            }
+            request.getRequestDispatcher("Producto.jsp").forward(request, response);
+        }
+        
             
     }
 
