@@ -23,10 +23,10 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent" style="background: #f5cba7">
                     <ul class="nav nav-tabs" style="background: #f5cba7">
                         <li class="nav-item" style="background-color: #f5cba7;">
-                            <a  style="margin-left: 10px; border: none;" class="nav-link btn btn-outline-light text-dark" href="Controlador?menu=Cliente" target="myFrame">Principal</a>
+                            <a  style="margin-left: 10px; border: none;" class="nav-link btn btn-outline-light text-dark" href="Controlador?menu=Principal" target="myFrame">Principal</a>
                         </li>
                         <li class="nav-item" style="background-color: #f5cba7;">
-                            <a  style="margin-left: 10px; border: none" class="nav-link btn btn-outline-light text-dark" href="Controlador?menu=Cliente" target="myFrame">Cliente</a>
+                            <a  style="margin-left: 10px; border: none" class="nav-link btn btn-outline-light text-dark" href="Controlador?menu=Cliente&accion=Listar" target="myFrame">Cliente</a>
                         </li>
                         <li class="nav-item" style="background-color: #f5cba7;">
                             <a style="margin-left: 10px; border: none" class="nav-link btn btn-outline-light text-dark" href="Controlador?menu=Empleado&accion=Listar" target="myFrame">Empleado</a>
