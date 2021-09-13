@@ -1,5 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -21,7 +21,7 @@
                             <input type="text" value = "${empleado.getNombresEmpleado()}" name="txtNombresEmpleado" class="form-control">
                         </div>
                         <div class="form-group">                            
-                            <label>TelÃ©fono:</label>
+                            <label>Teléfono:</label>
                             <input type="text" value = "${empleado.getTelefonoEmpleado()}" name="txtTelefonoEmpleado" class="form-control">
                         </div>
                         <div class="form-group">                            
