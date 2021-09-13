@@ -30,7 +30,7 @@ public class Controlador extends HttpServlet
     
     /*Variable para la función Editar y Eliminar*/
     int codEmpleado;
-    
+    int codCliente;
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -129,7 +129,10 @@ public class Controlador extends HttpServlet
                     request.getRequestDispatcher("Controlador?menu=Cliente&accion=Listar").forward(request, response);
                     break;
                 case "Editar":
-                   
+                   codCliente = Integer.parseInt(request.getParameter("codigoCliente"));
+                    Cliente e = clienteDAO.listarCodigoCliente(codCliente);
+                    request.setAttribute("cliente", e);
+                    request.getRequestDispatcher("Controlador?menu=Cliente&accion=Listar").forward(request, response);
                     break;
                 case "Actualizar":
                    
