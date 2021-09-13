@@ -109,7 +109,7 @@ public class Controlador extends HttpServlet
             
             request.getRequestDispatcher("Empleado.jsp").forward(request, response);
        
-        }else if (menu.equals("Clente"))
+        }else if (menu.equals("Cliente"))
         {
             switch (accion) {
                 case "Listar":
