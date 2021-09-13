@@ -213,12 +213,14 @@ public class Controlador extends HttpServlet
                     break;
                     
                 case "Eliminar":
-                    
+                    codProducto = Integer.parseInt(request.getParameter("codigoProducto"));
+                    productoDAO.eliminar(codProducto);
+                    request.getRequestDispatcher("Controlador?menu=Producto&accion=Listar").forward(request, response);
+                    break;        
             }
             request.getRequestDispatcher("Producto.jsp").forward(request, response);
         }
-        
-            
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
