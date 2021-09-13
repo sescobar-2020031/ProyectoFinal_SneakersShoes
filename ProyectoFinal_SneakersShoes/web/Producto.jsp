@@ -50,7 +50,7 @@
                             <tr>
                                 <td>${producto.getCodigoProducto()}</td>
                                 <td>${producto.getNombreProducto()}</td>
-                                <td>${producto.getPrecio()}</td>
+                                <td>Q. ${producto.getPrecio()}</td>
                                 <td>${producto.getStock()}</td>
                                 <td>${producto.getEstado()}</td>
                                 <td>
