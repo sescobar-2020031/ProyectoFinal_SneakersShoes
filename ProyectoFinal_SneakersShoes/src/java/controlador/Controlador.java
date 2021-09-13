@@ -199,6 +199,18 @@ public class Controlador extends HttpServlet
                     break;
                     
                 case "Actualizar":
+                    String nombresPro = request.getParameter("txtNombreProducto");
+                    String precioPro = request.getParameter("txtPrecio");
+                    String stockPro = request.getParameter("txtStock");
+                    String estPro = request.getParameter("txtEstado");
+                    producto.setNombreProducto(nombresPro);
+                    producto.setPrecio(Double.parseDouble(precioPro));
+                    producto.setStock(Integer.parseInt(stockPro));
+                    producto.setEstado(estPro);
+                    producto.setCodigoProducto(codProducto);
+                    productoDAO.actualizar(producto);
+                    request.getRequestDispatcher("Controlador?menu=Producto&accion=Listar").forward(request, response);
+                    break;
                     
                 case "Eliminar":
                     
