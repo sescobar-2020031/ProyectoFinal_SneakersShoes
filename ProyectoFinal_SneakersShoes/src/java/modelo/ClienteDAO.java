@@ -99,7 +99,7 @@ public class ClienteDAO {
     
     public int actualizar(Cliente cli)
     {
-        String sql = "Update Cliente set DPICliente = ?, nombresCliente = ?, direccionCliente = ?, estado = ?, where codigoCliente = ?";
+        String sql = "Update Cliente set DPICliente = ?, nombresCliente = ?, direccionCliente = ?, estado = ? where codigoCliente = ?";
         try
         {
             con = cn.Conexion();
