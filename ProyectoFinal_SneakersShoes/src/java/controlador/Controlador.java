@@ -142,8 +142,8 @@ public class Controlador extends HttpServlet
                     
                 case "Editar":
                     codCliente = Integer.parseInt(request.getParameter("codigoCliente"));
-                    Cliente e = clienteDAO.listarCodigoCliente(codCliente);
-                    request.setAttribute("cliente", e);
+                    Cliente c = clienteDAO.listarCodigoCliente(codCliente);
+                    request.setAttribute("cliente", c);
                     request.getRequestDispatcher("Controlador?menu=Cliente&accion=Listar").forward(request, response);
                     break;
                     
@@ -193,8 +193,8 @@ public class Controlador extends HttpServlet
                     
                 case "Editar":
                     codProducto = Integer.parseInt(request.getParameter("codigoProducto"));
-                    Producto e = productoDAO.listarCodigoProducto(codProducto);
-                    request.setAttribute("producto", e);
+                    Producto p = productoDAO.listarCodigoProducto(codProducto);
+                    request.setAttribute("producto", p);
                     request.getRequestDispatcher("Controlador?menu=Producto&accion=Listar").forward(request, response);
                     break;
                     
