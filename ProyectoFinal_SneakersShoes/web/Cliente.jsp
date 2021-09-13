@@ -15,19 +15,19 @@
                     <form action="Controlador?menu=Cliente" method="POST">
                         <div class="form-group">
                             <label>DPI:</label>
-                            <input type="text" name="txtDPICliente" class="form-control">
+                            <input type= "text" value = "${cliente.getDPICliente()}" name="txtDPICliente" class="form-control"> }
                         </div>
                         <div class="form-group">
                             <label>Nombres:</label>
-                            <input type="text" name="txtNombresCliente" class="form-control">                            
+                            <input type="text" value = "${cliente.getNombresCliente()}" name="txtNombresCliente" class="form-control">                            
                         </div>
                         <div class="form-group">
                             <label>Direccion:</label>
-                            <input type="text" name="txtDireccionCliente" class="form-control">
+                            <input type="text" value = "${cliente.getDireccionCliente()}" name="txtDireccionCliente" class="form-control">
                         </div>
                         <div class="form-group">
                             <label>Estado:</label>
-                            <input type="text" name="txtEstado" class="form-control">
+                            <input type="text" value = "${cliente.getEstado()}" name="txtEstado" class="form-control">
                         </div>
                         <input type="submit" name="accion" value="Agregar" class="btn btn-info">
                         <input type="submit" name="accion" value="Actualizar" class="btn btn-success">
@@ -55,8 +55,8 @@
                             <td>${cliente.getDireccionCliente()}</td>
                             <td>${cliente.getEstado()}</td>
                             <td>
-                                <a class="btn btn-warning">Editar</a>
-                                <a class="btn btn-danger">Eliminar</a>
+                                <a class="btn btn-warning" href="Controlador?menu=Cliente&accion=Editar&codigoCliente=${cliente.getCodigoCliente()}">Editar</a>
+                                <a class="btn btn-danger" href="Controlador?menu=Cliente&accion=Eliminar&codigoCliente=${cliente.getCodigoCliente()}">Eliminar</a>
                             </td>
                         </tr>
                     </c:forEach>

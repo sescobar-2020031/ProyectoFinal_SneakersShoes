@@ -12,6 +12,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import modelo.Cliente;
+import modelo.ClienteDAO;
 import modelo.Empleado;
 import modelo.EmpleadoDAO;
 
@@ -22,10 +24,13 @@ public class Controlador extends HttpServlet
     
     Empleado empleado = new Empleado();
     EmpleadoDAO empleadoDAO = new EmpleadoDAO();
+    Cliente cliente = new Cliente();
+    ClienteDAO clienteDAO = new ClienteDAO();
+
     
     /*Variable para la función Editar y Eliminar*/
     int codEmpleado;
-    
+    int codCliente;
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -103,7 +108,54 @@ public class Controlador extends HttpServlet
             }
             
             request.getRequestDispatcher("Empleado.jsp").forward(request, response);
+       
+        }else if (menu.equals("Cliente"))
+        {
+            switch (accion) {
+                case "Listar":
+                    List listaClientes = clienteDAO.listar();
+                    request.setAttribute("clientes", listaClientes);
+                    break;
+                case "Agregar":
+                    String DPI = request.getParameter("txtDPICliente");
+                    String nombres = request.getParameter("txtNombresCliente");
+                    String direccion = request.getParameter("txtDireccionCliente");
+                    String est = request.getParameter("txtEstado");
+                    cliente.setDPICliente(DPI);
+                    cliente.setNombresCliente(nombres);
+                    cliente.setDireccionCliente(direccion);
+                    cliente.setEstado(est);
+                    clienteDAO.agregar(cliente);
+                    request.getRequestDispatcher("Controlador?menu=Cliente&accion=Listar").forward(request, response);
+                    break;
+                case "Editar":
+                    codCliente = Integer.parseInt(request.getParameter("codigoCliente"));
+                    Cliente e = clienteDAO.listarCodigoCliente(codCliente);
+                    request.setAttribute("cliente", e);
+                    request.getRequestDispatcher("Controlador?menu=Cliente&accion=Listar").forward(request, response);
+                    break;
+                case "Actualizar":
+                    String DPICli = request.getParameter("txtDPICliente");
+                    String nombresCli = request.getParameter("txtNombresCliente");
+                    String direccionCli = request.getParameter("txtDireccionCliente");
+                    String estCli = request.getParameter("txtEstado");
+                    cliente.setDPICliente(DPICli);
+                    cliente.setNombresCliente(nombresCli);
+                    cliente.setDireccionCliente(direccionCli);
+                    cliente.setEstado(estCli);
+                    cliente.setCodigoCliente(codCliente);
+                    clienteDAO.actualizar(cliente);
+                    request.getRequestDispatcher("Controlador?menu=Cliente&accion=Listar").forward(request, response);
+                    break;
+                case "Eliminar":
+                    codCliente = Integer.parseInt(request.getParameter("codigoCliente"));
+                    clienteDAO.eliminar(codCliente);
+                    request.getRequestDispatcher("Controlador?menu=Cliente&accion=Listar").forward(request, response);
+                    break;
+            }
+            request.getRequestDispatcher("Cliente.jsp").forward(request, response);
         }
+            
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
