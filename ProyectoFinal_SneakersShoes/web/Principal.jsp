@@ -3,7 +3,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="CSS/Principal.css">
+        <link rel="stylesheet" href="css/PrincipalCSS.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
             <!-- Bootstrap CSS -->
@@ -26,20 +26,21 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="nav nav-tabs" id="Btns">
                         <li class="nav-item">
-                            <a class="nav-link text-light" href="Controlador?menu=PaginaPrincipal" target="myFrame">Principal</a>
+                            <a class="nav-link text-light" href="Controlador?menu=Principal" target="myFrame">Principal</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-light" href="Controlador?menu=Cliente" target="myFrame">Cliente</a>
+                            <a class="nav-link text-light" href="Controlador?menu=Cliente&accion=Listar" target="myFrame">Cliente</a>
+                        </li>
+                        <li class="nav-item"">
+                            <a class="nav-link text-light" href="Controlador?menu=Empleado&accion=Listar" target="myFrame">Empleado</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link  text-light" href="Controlador?menu=Empleado&accion=Listar" target="myFrame">Empleado</a>
+                            <a  class="nav-link text-light" href="Controlador?menu=Producto&accion=Listar" target="myFrame">Producto</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-light" href="Controlador?menu=Producto" target="myFrame">Producto</a>
+                            <a  class="nav-link text-light" href="Controlador?menu=RegistroVenta" target="myFrame">RegistroVenta</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light" href="Controlador?menu=RegistroVenta" target="myFrame">RegistroVenta</a>
-                        </li>
+                       
                     </ul>
 
                 </div>
