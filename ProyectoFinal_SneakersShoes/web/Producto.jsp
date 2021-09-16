@@ -12,6 +12,7 @@
         <div class="d-flex">
             <div class="card col-lg-4">
                 <div class="card-body">
+                    <h4><center>Producto</center></h4>
                     <form action="Controlador?menu=Producto" method="POST">
                         <div class="form-group">
                             <label>Nombre:</label>
