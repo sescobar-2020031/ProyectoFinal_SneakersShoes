@@ -63,7 +63,7 @@
             </div>
         </nav>
         <div class="m-4"  id="Frame">
-            <iframe ${request.getRequestDispatcher("PaginaPrincipal.jsp").forward(request, response)} name="myFrame" style=" height: 100%; width: 100%;" id="myFrame"></iframe>
+            <iframe src="./PaginaPrincipal.jsp" name="myFrame" style=" height: 100%; width: 100%;" id="myFrame"></iframe>
         </div>
 
         <footer id="Nav2">
