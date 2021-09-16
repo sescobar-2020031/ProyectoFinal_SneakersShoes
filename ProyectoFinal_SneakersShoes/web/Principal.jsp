@@ -26,7 +26,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="nav nav-tabs" id="Btns">
                         <li class="nav-item">
-                            <a class="nav-link text-light" href="Controlador?menu=Principal" target="myFrame">Principal</a>
+                            <a class="nav-link text-light" href="Controlador?menu=PaginaPrincipal" target="myFrame">Principal</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-light" href="Controlador?menu=Cliente&accion=Listar" target="myFrame">Cliente</a>
