@@ -12,6 +12,7 @@
         <div class="d-flex">
             <div class="card col-sm-4">
                 <div class="card-body">
+                    <h4><center>Empleado</center></h4>
                     <form action="Controlador?menu=Empleado" method="POST">
                         <div class="form-group">                            
                             <label>DPI:</label>
