@@ -18,8 +18,8 @@
                                 <label>Datos del Cliente:</label>
                             </div>
                             <div class="form-group d-flex">
-                                <div class="col-sm-6 d-flex">
-                                    <input type="text" name="txtCodigoCliente" value="${cliente.getDPICliente()}" class="form-control" placeholder="Codigo">
+                                <div class="col-sm-6.5 d-flex">
+                                    <input type="text" name="txtCodigoCliente" value="${cliente.getDPICliente()}" class="form-control" placeholder="DPI">
                                     <input type="submit" name="accion" value="BuscarCliente" class="btn btn-outline-info">
                                 </div>
                                 <div class="col-sm-6">
