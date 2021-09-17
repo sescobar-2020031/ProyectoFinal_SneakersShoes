@@ -31,7 +31,7 @@
                         <li class="nav-item">
                             <a class="nav-link text-light" href="Controlador?menu=Cliente&accion=Listar" target="myFrame">Cliente</a>
                         </li>
-                        <li class="nav-item"">
+                        <li class="nav-item">
                             <a class="nav-link text-light" href="Controlador?menu=Empleado&accion=Listar" target="myFrame">Empleado</a>
                         </li>
                         <li class="nav-item">
