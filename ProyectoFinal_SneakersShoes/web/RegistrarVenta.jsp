@@ -1,11 +1,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Registrar Venta</title>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
     <body>
         <div class="d-flex">
@@ -20,7 +21,8 @@
                             <div class="form-group d-flex">
                                 <div class="col-sm-6.5 d-flex">
                                     <input type="text" name="txtCodigoCliente" value="${cliente.getDPICliente()}" class="form-control" placeholder="DPI">
-                                    <input type="submit" name="accion" value="BuscarCliente" class="btn btn-outline-info">
+                                    <button type="submit" name="accion" value="BuscarCliente" class="btn-outline-info">
+                                        <i class="fa fa-search"></i> Buscar</button> 
                                 </div>
                                 <div class="col-sm-6">
                                     <input type="text" name="txtNombresCliente" value="${cliente.getNombresCliente()}" class="form-control" placeholder="Nombres">
@@ -33,7 +35,8 @@
                             <div class="form-group d-flex">
                                 <div class="col-sm-6 d-flex">
                                     <input type="text" name="txtCodigoProducto" value="${producto.getCodigoProducto()}" class="form-control" placeholder="Producto">
-                                    <button type="submit" name="accion" value="BuscarProducto" class="btn-outline-info">Buscar</button> 
+                                    <button type="submit" name="accion" value="BuscarProducto" class="btn-outline-info">
+                                        <i class="fa fa-search"></i> Buscar</button> 
                                 </div>
                                 <div class="col-sm-6">
                                     <input type="text" name="txtNombreProducto" value="${producto.getNombreProducto()}" class="form-control" placeholder="Nombre">
@@ -53,7 +56,7 @@
                             <!--AGREGAR REGISTRO-->
                             <div class="form-group">
                                 <div>
-                                    <button type="submit" name="accion" value="Agregar" class="btn btn-outline-info">Agregar Producto</button>
+                                    <button type="submit" name="accion" value="Agregar" class="btn btn-outline-info"><i class="fa fa-plus-circle"></i> Agregar Producto</button>    
                                 </div>
                             </div>
                         </div>
@@ -85,11 +88,12 @@
                                     <td>${list.getItem()}</td>
                                     <td>${list.getCodigoProducto()}</td>
                                     <td>${list.getDescripcionProd()}</td>
-                                    <td>${list.getPrecio()}</td>
+                                    <td>Q. ${list.getPrecio()}</td>
                                     <td>${list.getCantidad()}</td>
-                                    <td>${list.getSubTotal()}</td>
+                                    <td>Q. ${list.getSubTotal()}</td>
                                     <td class="d-flex">
-                                        <a href="Controlador?menu=RegistrarVenta&accion=Eliminar&NumeroDetalleVenta=${list.getItem()}" class="btn btn-danger" style="margin-left: 5px">Eliminar</a>
+                                        <a class="btn btn-danger" href="Controlador?menu=RegistrarVenta&accion=Eliminar&NumeroDetalleVenta=${list.getItem()}"style="margin-left: 5px">
+                                            <i class="fa fa-trash"></i> Eliminar</a>
                                     </td>
                                 </tr>
                                 </c:forEach>
@@ -111,5 +115,8 @@
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+        
+        <!-- Iconos -->
+        <script src="https://kit.fontawesome.com/2c36e9b7b1.js"></script>
     </body>
 </html>
