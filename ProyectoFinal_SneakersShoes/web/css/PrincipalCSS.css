@@ -1,0 +1,53 @@
+#Body{
+
+}
+
+#NavL{
+    background-color: #4B3838;
+}
+#Container{
+    background-color: #4B3838;
+}
+#Brand{
+    background-color: #4B3838;
+}
+#Btns{
+    background-color: #4B3838;
+
+}
+#Drop{
+    background-color: white;
+    color: black;
+    border: none;
+    border-radius: 12px;
+}
+#Frame{
+    background-color: white;
+    height: 525px; 
+    border: none; 
+    margin: 20px
+}
+#NombreEmpresa{
+    color: FFEB00;
+}
+#Nav2{
+    background-color: #4B3838;
+}
+#cont2{
+    background-color: #4B3838;
+}
+#icono{
+    margin: 1px;
+}
+#icono1{
+    color: white;
+    margin: 1px;
+}
+#icono1:hover{
+    color: orange;
+    margin: 1px;
+}
+
+
+
+
